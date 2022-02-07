@@ -1,5 +1,5 @@
 footer {
-    height: 5%;
+    height: 2rem;
     width: 100%;
     background: rgb(37, 95, 221);
     background: -moz-linear-gradient(0deg, rgba(37, 95, 221, 1) 90%, rgba(13, 202, 233, 1) 100%);
@@ -8,6 +8,8 @@ footer {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#255fdd",endColorstr="#0dcae9",GradientType=1);
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    bottom: 0;
     div:first-child,
     div:last-child,
     div:nth-child(2) {
