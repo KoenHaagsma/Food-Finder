@@ -4,7 +4,6 @@
 const icons = document.querySelectorAll('.icon');
 const content = document.querySelectorAll('.content-container');
 const iconContainer = document.querySelector('.icon-container');
-console.log(iconContainer);
 icons.forEach((icon) => {
     icon.onclick = () => {
         [...contentArray] = content;
@@ -26,3 +25,9 @@ closeButtons.forEach((button) => {
         iconContainer.classList.toggle('icon-container-shown');
     };
 });
+
+// Fill time
+const contentTime = document.querySelector('.time');
+let date = new Date();
+let time = `${date.getHours()}:${date.getMinutes()}`;
+contentTime.append(time);

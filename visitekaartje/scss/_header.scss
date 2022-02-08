@@ -1,7 +1,7 @@
 header {
     height: 100vh;
     width: 100%;
-    background-image: url('../images/background.png');
+    background-image: url('../images/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     .icon-container {
@@ -95,6 +95,24 @@ header {
                 width: 100%;
                 background-color: $color-white;
                 border-radius: 0 0 8px 8px;
+                .inside-bar {
+                    width: calc(100% - 0.5rem);
+                    background-color: $color-soft-yellow;
+                    height: 2rem;
+                    display: flex;
+                    justify-content: flex-start;
+                    padding: 0 0.25rem;
+                    button {
+                        border: none;
+                        background: none;
+                        padding: 0 0.25rem;
+                    }
+                }
+                p {
+                    padding: 1rem;
+                    margin: 0;
+                    max-width: 600px;
+                }
             }
         }
         .content-container-shown {
