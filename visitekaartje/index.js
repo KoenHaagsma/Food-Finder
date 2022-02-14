@@ -1,9 +1,10 @@
 // https://www.kirupa.com/html5/drag.htm
 
-// Open content tab
 const icons = document.querySelectorAll('.icon');
 const content = document.querySelectorAll('.content-container');
 const iconContainer = document.querySelector('.icon-container');
+
+// Open content tab
 icons.forEach((icon) => {
     icon.onclick = () => {
         [...contentArray] = content;
