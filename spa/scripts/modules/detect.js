@@ -22,17 +22,16 @@ const detect = {
                         return;
                     }
                     console.log('Initialization finished. Ready to start');
+
                     Quagga.start();
 
                     _scannerRunning = true;
 
                     Quagga.onDetected((result) => {
                         code = result.codeResult.code;
-                        if (code.length > 0) {
-                            console.log(code);
-                            callback(code);
-                        }
-                        detect.stop();
+                        console.log(code);
+                        callback(code);
+                        detect.stop(`${element}`);
                     });
                 },
             );
@@ -44,9 +43,13 @@ const detect = {
         Quagga.stop();
         const videoDelete = document.querySelector(`${element} > video`);
         const canvasDelete = document.querySelector(`${element} > canvas`);
-        videoDelete.remove();
-        canvasDelete.remove();
-        console.log('Stopped manually');
+        if (videoDelete) {
+            videoDelete.remove();
+        }
+        if (canvasDelete) {
+            canvasDelete.remove();
+        }
+        console.log('Stopped');
         _scannerRunning = false;
     },
 };
