@@ -7,3 +7,11 @@ body {
 h1 {
     margin: 0;
 }
+
+.container > video {
+    width: 100vw;
+}
+
+.drawingBuffer {
+    display: none;
+}
