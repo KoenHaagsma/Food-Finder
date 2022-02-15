@@ -13,7 +13,9 @@ export const Scanner = () => {
 
     buttonStart.onclick = (event) => {
         event.preventDefault;
-        detect.start(`.${div.className}`);
+        detect.start(`.${div.className}`, (result) => {
+            console.log(result);
+        });
     };
 
     buttonStop.onclick = (event) => {

@@ -1,6 +1,7 @@
+let _scannerRunning = false;
+
 const detect = {
-    start: function (element) {
-        let _scannerRunning = false;
+    start: function (element, callback) {
         let code;
 
         if (navigator.mediaDevices && typeof navigator.mediaDevices.getUserMedia === 'function') {
@@ -27,11 +28,11 @@ const detect = {
 
                     Quagga.onDetected((result) => {
                         code = result.codeResult.code;
-                        Quagga.stop();
-                        const forDelete = document.querySelector(element);
-                        forDelete.remove();
-                        console.log(code);
-                        return code;
+                        if (code.length > 0) {
+                            console.log(code);
+                            callback(code);
+                        }
+                        detect.stop();
                     });
                 },
             );
@@ -41,9 +42,12 @@ const detect = {
     },
     stop: function (element) {
         Quagga.stop();
-        const forDelete = document.querySelector(`${element} > video`);
-        forDelete.remove();
+        const videoDelete = document.querySelector(`${element} > video`);
+        const canvasDelete = document.querySelector(`${element} > canvas`);
+        videoDelete.remove();
+        canvasDelete.remove();
         console.log('Stopped manually');
+        _scannerRunning = false;
     },
 };
 
