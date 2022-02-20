@@ -1,6 +1,6 @@
 const Scanner = {
     render: async () => {
-        let view = `
+        const view = `
             <section class="section">
                 <h1> Scanner </h1>
             </section>

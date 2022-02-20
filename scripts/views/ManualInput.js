@@ -1,6 +1,6 @@
-let Manual = {
+let ManualInput = {
     render: async () => {
-        let view = `
+        const view = `
             <section class="section">
                 <h1> Manual </h1>
             </section>
@@ -10,4 +10,4 @@ let Manual = {
     after_render: async () => {},
 };
 
-export default Manual;
+export default ManualInput;

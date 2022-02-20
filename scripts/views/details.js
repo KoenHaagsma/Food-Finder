@@ -1,6 +1,6 @@
 const Details = {
     render: async () => {
-        let view = `
+        const view = `
             <section class="section">
                 <h1> Details </h1>
             </section>

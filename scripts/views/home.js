@@ -1,6 +1,6 @@
 const Home = {
     render: async () => {
-        let view = `
+        const view = `
             <section class="section">
                 <h1> Home </h1>
             </section>
