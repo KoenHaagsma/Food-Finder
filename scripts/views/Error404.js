@@ -9,4 +9,5 @@ const Error404 = {
     },
     after_render: async () => {},
 };
+
 export default Error404;

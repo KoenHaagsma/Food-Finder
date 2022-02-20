@@ -1,4 +1,4 @@
-let ManualInput = {
+const ManualInput = {
     render: async () => {
         const view = `
             <section class="section">
