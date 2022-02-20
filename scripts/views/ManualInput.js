@@ -2,7 +2,7 @@ const ManualInput = {
     render: async () => {
         const view = `
             <section class="section">
-                <h1> Manual </h1>
+                <h1> ManualInput </h1>
             </section>
         `;
         return view;
