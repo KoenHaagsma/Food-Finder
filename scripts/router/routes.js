@@ -1,13 +1,13 @@
-import { home } from '../views/home.js';
-import { manual } from '../views/manual.js';
-import { details } from '../views/details.js';
-import { scanner } from '../views/scanner.js';
+import Home from '../views/Home.js';
+import Manual from '../views/Manual.js';
+import Details from '../views/Details.js';
+import Scanner from '../views/Scanner.js';
 
 const routes = {
-    '/': home(),
-    '/manual': manual,
-    '/details': details,
-    '/scanner': scanner,
+    '/': Home,
+    '/manual': Manual,
+    '/details': Details,
+    '/scanner': Scanner,
 };
 
 export { routes };

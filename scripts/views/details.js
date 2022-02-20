@@ -1,2 +1,13 @@
-const details = `<h1>This is the ABOUT page</h1>`;
-export { details };
+const Details = {
+    render: async () => {
+        let view = `
+            <section class="section">
+                <h1> Details </h1>
+            </section>
+        `;
+        return view;
+    },
+    after_render: async () => {},
+};
+
+export default Details;

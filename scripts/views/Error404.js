@@ -1,13 +1,12 @@
-let Manual = {
+const Error404 = {
     render: async () => {
-        let view = `
+        const view = `
             <section class="section">
-                <h1> Manual </h1>
+                <h1> 404 Error </h1>
             </section>
         `;
         return view;
     },
     after_render: async () => {},
 };
-
-export default Manual;
+export default Error404;

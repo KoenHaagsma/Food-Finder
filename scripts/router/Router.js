@@ -1,17 +1,25 @@
+import Utils from '../helpers/Utils.js';
+import Error404 from '../views/Error404.js';
 import { routes } from './routes.js';
 
-const rootDiv = document.getElementById('root');
-const Router = {
-    init: function () {
-        rootDiv.innerHTML = routes[window.location.pathname];
-        window.onpopstate = () => {
-            rootDiv.innerHTML = routes[window.location.pathname];
-        };
-    },
-    navigate: function (pathname) {
-        window.history.pushState({}, pathname, window.location.origin + pathname);
-        rootDiv.innerHTML = routes[pathname];
-    },
+const router = async () => {
+    // Lazy load view element:
+    const content = null || document.getElementById('page_container');
+
+    // Get the parsed URl from the addressbar
+    let request = Utils.parseRequestURL();
+
+    // Parse the URL and if it has an id part, change it with the string ":id"
+    let parsedURL =
+        (request.resource ? '/' + request.resource : '/') +
+        (request.id ? '/:id' : '') +
+        (request.verb ? '/' + request.verb : '');
+
+    // Get the page from our hash of supported routes.
+    // If the parsed URL is not in our list of supported routes, select the 404 page instead
+    let page = routes[parsedURL] ? routes[parsedURL] : Error404;
+    content.innerHTML = await page.render();
+    await page.after_render();
 };
 
-export { Router };
+export default router;
