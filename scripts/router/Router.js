@@ -1,6 +1,6 @@
 import Utils from '../helpers/Utils.js';
 import Error404 from '../views/Error404.js';
-import { routes } from './routes.js';
+import routes from './routes.js';
 
 const router = async () => {
     const content = null || document.getElementById('page_container');

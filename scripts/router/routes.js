@@ -10,4 +10,4 @@ const routes = {
     '/scanner': Scanner,
 };
 
-export { routes };
+export default routes;
