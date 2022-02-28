@@ -23,7 +23,6 @@ const Scanner = {
     after_render: async () => {
         const buttons = document.querySelectorAll('button');
         const div = document.querySelector('.container');
-        const loader = document.querySelector('.loading-container');
         detect.start(`.${div.className}`, (result) => {
             fetchData(result).then((data) => {
                 if (data.status === 1) {
