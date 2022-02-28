@@ -26,6 +26,9 @@ const detect = {
                     Quagga.start();
 
                     _scannerRunning = true;
+                    if (_scannerRunning) {
+                        document.querySelector('.loading-container').style.display = 'none';
+                    }
 
                     Quagga.onDetected((result) => {
                         code = result.codeResult.code;

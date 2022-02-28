@@ -13,6 +13,7 @@ const routes = {
 };
 
 const router = async () => {
+    // Lazy load elements
     const content = null || document.getElementById('page_container');
 
     let request = Utils.parseRequestURL();

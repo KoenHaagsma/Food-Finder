@@ -10,8 +10,11 @@ const Utils = {
             id: null,
             verb: null,
         };
+        // After first slash
         request.resource = r[1];
+        // Slash after first slash
         request.id = r[2];
+        // ???
         request.verb = r[3];
 
         return request;
