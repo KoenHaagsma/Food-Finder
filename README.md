@@ -7,8 +7,8 @@
 
 ## 🧾 Table of contents
 -   [About the project](##About-the-project)
-      * [Iterations](###Iterations)
-      * [Built with](###Built-with)
+-   [Iterations](##Iterations)
+      * [Built with](##Built-with)
 -   [Getting started](##Getting-started)
       * [Installation](##Installation)
 -   [Packages/Dependecies](##Packages/dependecies)
@@ -19,8 +19,12 @@
 ## 📖 About the project
 *Tell where the project is about*
 
-## 🛠 Built with
+### 🛠 Built with
 *Where is the application made with*
+
+## 🔁 Iterations
+See wiki for iterations and more in depth info
+<a href="">Wiki</a>
 
 ## 🔍 Getting started
 *Before you can start you need to follow the installation*
