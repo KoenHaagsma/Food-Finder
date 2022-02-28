@@ -28,6 +28,19 @@ h1 {
 
 #page_container {
     min-height: 100vh;
+    position: relative;
+}
+
+#page_container > .loading-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 /* Home */

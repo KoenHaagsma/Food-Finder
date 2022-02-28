@@ -12,17 +12,18 @@ const routes = {
     '/scanner': Scanner,
 };
 
+// https://github.com/rishavs/vanillajs-spa
 const router = async () => {
     // Lazy load elements
     const content = null || document.getElementById('page_container');
 
     let request = Utils.parseRequestURL();
+    console.log(request);
 
     let parsedURL =
         (request.resource ? '/' + request.resource : '/') +
         (request.id ? '/:id' : '') +
         (request.verb ? '/' + request.verb : '');
-    console.log(parsedURL);
 
     let page = routes[parsedURL] ? routes[parsedURL] : Error404;
     content.innerHTML = await page.render();
