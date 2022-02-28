@@ -23,7 +23,7 @@
 *Where is the application made with*
 
 ## 🔁 Iterations
-See wiki for iterations and more in depth info
+See wiki for iterations and more in depth info<br>
 <a href="">Wiki</a>
 
 ## 🔍 Getting started
