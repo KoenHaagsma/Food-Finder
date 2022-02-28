@@ -1,5 +1,5 @@
 
-# ⚙ Project name
+# ⚙ Food finder
 
 *Insert picture/gif of full project UI*
 ## 📂 Assignment
@@ -7,6 +7,7 @@
 
 ## 🧾 Table of contents
 -   [About the project](##About-the-project)
+      * [Iterations](###Iterations)
       * [Built with](###Built-with)
 -   [Getting started](##Getting-started)
       * [Installation](##Installation)
