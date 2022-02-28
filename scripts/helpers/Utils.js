@@ -1,3 +1,4 @@
+// https://github.com/rishavs/vanillajs-spa
 const Utils = {
     // --------------------------------
     //  Parse a url and break it into resource, id and verb
