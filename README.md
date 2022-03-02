@@ -1,13 +1,15 @@
 
-# ⚙ Project name
+# ⚙ Food finder
 
 *Insert picture/gif of full project UI*
 ## 📂 Assignment
-*Assignment explanation*
+De assignment is build a SPA with vanilla JS (and microlibraries if needed) based on a user story that you chose yourself:
+'As a foodie, I want to be able to easily search and view information about a product while shopping, so that I can make a good choice whether it fits my diet. Healthy Food Checker - Open Food Facts API'
 
 ## 🧾 Table of contents
 -   [About the project](##About-the-project)
-      * [Built with](###Built-with)
+-   [Iterations](##Iterations)
+      * [Built with](##Built-with)
 -   [Getting started](##Getting-started)
       * [Installation](##Installation)
 -   [Packages/Dependecies](##Packages/dependecies)
@@ -18,8 +20,12 @@
 ## 📖 About the project
 *Tell where the project is about*
 
-## 🛠 Built with
+### 🛠 Built with
 *Where is the application made with*
+
+## 🔁 Iterations
+See wiki for iterations and more in depth info<br>
+<a href="">Wiki</a>
 
 ## 🔍 Getting started
 *Before you can start you need to follow the installation*
