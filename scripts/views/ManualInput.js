@@ -14,5 +14,6 @@ const ManualInput = {
     },
     after_render: async () => {},
 };
+// test
 
 export default ManualInput;
