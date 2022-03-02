@@ -9,6 +9,5 @@ const Error404 = {
     },
     after_render: async () => {},
 };
-// test
 
 export default Error404;
