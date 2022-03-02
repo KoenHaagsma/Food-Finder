@@ -8,7 +8,7 @@ const Scanner = {
                 <h1>Scan the product barcode</h1>
                 <div class="container">
                     <section class="loading-container">
-                        <img src="../../images/Preloader_3.gif">
+                        <img src="./images/Preloader_3.gif">
                         <p>Scanner is loading...</p>
                     </section>
                 </div>
