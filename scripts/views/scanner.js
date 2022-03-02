@@ -38,7 +38,7 @@ const Scanner = {
         buttons[0].onclick = (event) => {
             event.preventDefault;
             detect.stop(`.${div.className}`);
-            location.href = '/#/';
+            location.href = '/Food-Finder/#/';
         };
     },
 };
