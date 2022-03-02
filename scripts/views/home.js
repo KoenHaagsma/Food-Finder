@@ -4,8 +4,8 @@ const Home = {
             <section class="section home">
                 <h1> Food-Finder </h1>
                 <div class="link_container">
-                    <a href="http://127.0.0.1:5500/#/scanner">Scan product</a>
-                    <a href="http://127.0.0.1:5500/#/manual">Fill in product code</a>
+                    <a href="/#/scanner">Scan product</a>
+                    <a href="/#/manual">Fill in product code</a>
                 </div>
             </section>
         `;

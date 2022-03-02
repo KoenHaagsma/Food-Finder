@@ -1,9 +1,9 @@
 import Utils from '../helpers/Utils.js';
-import Error404 from '../views/Error404.js';
-import Home from '../views/Home.js';
-import ManualInput from '../views/ManualInput.js';
-import Details from '../views/Details.js';
-import Scanner from '../views/Scanner.js';
+import Error404 from '../views/error404.js';
+import Home from '../views/home.js';
+import ManualInput from '../views/manualInput.js';
+import Details from '../views/details.js';
+import Scanner from '../views/scanner.js';
 
 const routes = {
     '/': Home,
