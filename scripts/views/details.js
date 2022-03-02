@@ -10,5 +10,4 @@ const Details = {
     after_render: async () => {},
 };
 
-// test
 export default Details;

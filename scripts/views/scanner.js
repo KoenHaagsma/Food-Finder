@@ -42,6 +42,5 @@ const Scanner = {
         };
     },
 };
-// test
 
 export default Scanner;
