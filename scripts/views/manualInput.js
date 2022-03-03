@@ -71,7 +71,7 @@ const ManualInput = {
                                     ${data.products
                                         .map(
                                             (product) =>
-                                                `<li class="list-item-li"><a href="/#/details/${product._id}"> class="list-item">${product.product_name}</a></li>`,
+                                                `<li class="list-item-li"><a class="list-item" href="/#/details/${product._id}">${product.product_name}</a></li>`,
                                         )
                                         .join('\n ')}
                                     `;
