@@ -357,6 +357,7 @@ h1 {
     min-height: calc(100vh - 4rem);
     padding: 2rem;
     position: relative;
+    margin-bottom: 5rem;
 }
 
 .details > .link-container {
