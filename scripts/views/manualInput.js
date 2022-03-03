@@ -36,47 +36,57 @@ const ManualInput = {
             if (isNaN(event.target[0].value)) {
                 fetchData(`${productCategoryURL}${event.target[0].value}/${counter}.json`)
                     .then((data) => {
+                        console.log(data);
                         contentList.innerHTML = `
                         <p class="count">${data.count} products found</p>
                         <ul class="products">
                         ${data.products
                             .map(
                                 (product) =>
-                                    `<li class="list-item-li"><a href="" class="list-item">${product.product_name}</a></li>`,
+                                    `<li class="list-item-li"><a href="/#/details/${product._id}" class="list-item">${product.product_name}</a></li>`,
                             )
                             .join('\n ')}
-                        </ul>`;
+                        </ul>
+                        <div class="loading-products">
+                        </div>`;
 
-                        // Lazy load more products
-                        let observer = new IntersectionObserver(
-                            (elements) => {
-                                const lastCard = elements[0];
-                                const productsList = document.querySelector('.products');
-                                console.log(lastCard);
-                                if (!lastCard.isIntersecting) return;
-                                loadNextPage();
-                                function loadNextPage() {
-                                    fetchData(`${productCategoryURL}${event.target[0].value}/${counter + 1}.json`)
-                                        .then((data) => {
-                                            observer.unobserve(lastCard.target);
-                                            productsList.innerHTML += `
+                        // Lazy load more products if product count is greater than 24
+                        if (data.count > 24) {
+                            let observer = new IntersectionObserver(
+                                (elements) => {
+                                    const lastCard = elements[0];
+                                    const productsList = document.querySelector('.products');
+                                    const loadingContainer = document.querySelector('.loading-products');
+                                    if (!lastCard.isIntersecting) return;
+                                    loadNextPage();
+                                    function loadNextPage() {
+                                        loadingContainer.innerHTML = `
+                                            <img src="./images/Preloader_3.gif">
+                                            <p>Products are being loaded...</p>
+                                        `;
+                                        fetchData(`${productCategoryURL}${event.target[0].value}/${counter + 1}.json`)
+                                            .then((data) => {
+                                                observer.unobserve(lastCard.target);
+                                                productsList.innerHTML += `
                                     ${data.products
                                         .map(
                                             (product) =>
-                                                `<li class="list-item-li"><a href="" class="list-item">${product.product_name}</a></li>`,
+                                                `<li class="list-item-li"><a href="/#/details/${product._id}"> class="list-item">${product.product_name}</a></li>`,
                                         )
                                         .join('\n ')}
                                     `;
-                                        })
-                                        .then(() => {
-                                            counter++;
-                                            observer.observe(document.querySelector('.list-item-li:last-child'));
-                                        });
-                                }
-                            },
-                            { rootMargin: '500px 0px 0px 0px' },
-                        );
-                        observer.observe(document.querySelector('.list-item-li:last-child'));
+                                            })
+                                            .then(() => {
+                                                counter++;
+                                                observer.observe(document.querySelector('.list-item-li:last-child'));
+                                                loadingContainer.innerHTML = '';
+                                            });
+                                    }
+                                },
+                                { rootMargin: '500px 0px 0px 0px' },
+                            );
+                            observer.observe(document.querySelector('.list-item-li:last-child'));
+                        }
                     })
                     .catch((error) => {
                         contentList.innerHTML = errorMessage;
@@ -93,7 +103,7 @@ const ManualInput = {
                         console.error(error);
                     });
             } else {
-                console.log(`couldn't find info with given paramters`);
+                console.log(`couldn't find info with given parameters`);
             }
         });
     },

@@ -8,7 +8,7 @@ import Scanner from '../views/scanner.js';
 const routes = {
     '/': Home,
     '/manual': ManualInput,
-    '/details': Details,
+    '/details/:id': Details,
     '/scanner': Scanner,
 };
 

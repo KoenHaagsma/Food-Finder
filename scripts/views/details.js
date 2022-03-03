@@ -1,3 +1,5 @@
+let getProduct = async (id) => {};
+
 const Details = {
     render: async () => {
         const view = `
