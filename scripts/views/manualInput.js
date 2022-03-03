@@ -8,7 +8,7 @@ const ManualInput = {
                 <form id="product-form">
                     <label for="product-code">Product name/code</label><br>
                     <input type="text" id="product-code" name="product-code"><br><br>
-                    <button type="submit" value="submit" form="product-form">Submit</button>
+                    <button type="submit" value="submit" id="product-submit" form="product-form">Submit</button>
                 </form>
                 <section class="content"></section>
             </section>
@@ -23,6 +23,7 @@ const ManualInput = {
         const errorMessage = `<p class="error">Something went wrong here, please try again</p>`;
         let counter = 1;
 
+        // Form event
         form.addEventListener('submit', (event) => {
             event.preventDefault();
             form.classList.add('active');
@@ -104,6 +105,17 @@ const ManualInput = {
                     });
             } else {
                 console.log(`couldn't find info with given parameters`);
+            }
+        });
+
+        const input = document.querySelector('#product-code');
+        const button = document.querySelector('#product-submit');
+        input.addEventListener('keyup', (event) => {
+            const value = event.currentTarget.value;
+            button.disabled = false;
+
+            if (value === '') {
+                button.disabled = true;
             }
         });
     },
