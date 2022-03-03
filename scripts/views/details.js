@@ -2,7 +2,7 @@ const Details = {
     render: async () => {
         const view = `
             <section class="section">
-                <h1> Details </h1>
+                <h1>Details</h1>
             </section>
         `;
         return view;

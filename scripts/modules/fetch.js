@@ -1,8 +1,6 @@
-import { url } from '../config/config.js';
-
-async function fetchData(key) {
+async function fetchData(url) {
     try {
-        let res = await fetch(`${url}${key}`);
+        let res = await fetch(`${url}`);
         return await res.json();
     } catch (error) {
         console.log(error);

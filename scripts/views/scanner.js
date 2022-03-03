@@ -14,7 +14,7 @@ const Scanner = {
                 </div>
                 <div class="link_container">
                     <button>Stop scanning</button>
-                    <a href="/Food-Finder/#/manual">Can't scan product? Fill in code</a>
+                    <a href="/#/manual">Can't scan product? Fill in code</a>
                 </div>
             </section>
         `;
@@ -23,8 +23,9 @@ const Scanner = {
     after_render: async () => {
         const buttons = document.querySelectorAll('button');
         const div = document.querySelector('.container');
+        const url = 'https://world.openfoodfacts.org/api/v0/product/';
         detect.start(`.${div.className}`, (result) => {
-            fetchData(result).then((data) => {
+            fetchData(url, result).then((data) => {
                 if (data.status === 1) {
                     console.log('Found!');
                     console.log(data);
@@ -38,7 +39,7 @@ const Scanner = {
         buttons[0].onclick = (event) => {
             event.preventDefault;
             detect.stop(`.${div.className}`);
-            location.href = '/Food-Finder/#/';
+            location.href = '/#/';
         };
     },
 };

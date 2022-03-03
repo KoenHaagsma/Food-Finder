@@ -166,13 +166,69 @@ h1 {
     align-items: center;
     min-height: calc(100vh - 4rem);
     padding: 2rem;
+    position: relative;
 }
 
 .manual-input > h1 {
     font-size: 2rem;
     margin-top: 5rem;
+    text-align: center;
 }
 
 .manual-input > form {
     margin-top: 30vh;
+    transition: all 0.25s;
+}
+
+.manual-input > .content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.manual-input > .content > .loader {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.manual-input > .content > .count {
+    font-size: 0.75rem;
+    color: var(--black);
+}
+
+.manual-input > .content > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.manual-input > .content li {
+    padding: 1rem;
+    background-color: var(--grey);
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+.manual-input > .content li a {
+    text-decoration: none;
+    color: var(--black);
+}
+
+.manual-input > .content > .error {
+    padding: 1rem 2rem;
+    color: #9f6000;
+    background-color: #feefb3;
+}
+
+.manual-input > .active {
+    margin-top: 2rem;
 }
