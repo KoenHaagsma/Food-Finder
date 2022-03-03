@@ -6,11 +6,12 @@ const ManualInput = {
             <section class="section manual-input">
                 <h1>Fill in product name/code</h1>
                 <form id="product-form">
-                    <label for="product-code">Product name/code</label><br>
-                    <input type="text" id="product-code" name="product-code"><br><br>
-                    <button type="submit" value="submit" id="product-submit" form="product-form">Submit</button>
+                    <label for="product-code">Product name or code</label>
+                    <input type="text" id="product-code" name="product-code">
+                    <button type="submit" value="submit" id="product-submit" form="product-form">Search</button>
                 </form>
                 <section class="content"></section>
+                <div class='link-container'><a href="/Food-Finder/#/scanner"><img src="./images/camera.png"></a></div> 
             </section>
         `;
         return view;
@@ -33,25 +34,32 @@ const ManualInput = {
                 <img src='./images/Preloader_3.gif'>
                 <p>Searching product...</p>
             </div>`;
+
             // Category search
             if (isNaN(event.target[0].value)) {
                 fetchData(`${productCategoryURL}${event.target[0].value}/${counter}.json`)
                     .then((data) => {
                         console.log(data);
+                        // Cancel if product is not complete or empty or not found
+                        if (data.status === 0 || data.count === 0 || data.products.length === 0) {
+                            contentList.innerHTML = `
+                            <p class="error">Product not complete or not found</p>
+                            `;
+                            return;
+                        }
                         contentList.innerHTML = `
                         <p class="count">${data.count} products found</p>
                         <ul class="products">
                         ${data.products
                             .map(
                                 (product) =>
-                                    `<li class="list-item-li"><a href="/#/details/${product._id}" class="list-item">${product.product_name}</a></li>`,
+                                    `<li class="list-item-li"><a href="/Food-Finder/#/details/${product._id}" class="list-item">${product.product_name}</a></li>`,
                             )
                             .join('\n ')}
                         </ul>
                         <div class="loading-products">
                         </div>`;
-
-                        // Lazy load more products if product count is greater than 24
+                        // Lazy load more products if product count is greater than 24 because of pagination
                         if (data.count > 24) {
                             let observer = new IntersectionObserver(
                                 (elements) => {
@@ -62,8 +70,7 @@ const ManualInput = {
                                     loadNextPage();
                                     function loadNextPage() {
                                         loadingContainer.innerHTML = `
-                                            <img src="./images/Preloader_3.gif">
-                                            <p>Products are being loaded...</p>
+                                            <div class="skeleton"></div>
                                         `;
                                         fetchData(`${productCategoryURL}${event.target[0].value}/${counter + 1}.json`)
                                             .then((data) => {
@@ -72,7 +79,7 @@ const ManualInput = {
                                     ${data.products
                                         .map(
                                             (product) =>
-                                                `<li class="list-item-li"><a class="list-item" href="/#/details/${product._id}">${product.product_name}</a></li>`,
+                                                `<li class="list-item-li"><a class="list-item" href="/Food-Finder/#/details/${product._id}">${product.product_name}</a><span>Details &bsp</span></li>`,
                                         )
                                         .join('\n ')}
                                     `;
@@ -93,11 +100,18 @@ const ManualInput = {
                         contentList.innerHTML = errorMessage;
                         console.error(error);
                     });
+
                 // Product code search
             } else if (!isNaN(event.target[0].value)) {
                 fetchData(`${productCodeURL}${event.target[0].value}`)
                     .then((data) => {
-                        console.log(data);
+                        if (data.status === 0 || data.count === 0 || data.product.completeness === 0) {
+                            contentList.innerHTML = `
+                            <p class="error">Product not complete or found</p>
+                            `;
+                            return;
+                        }
+                        location.href = `/Food-Finder/#/details/${data.product._id}`;
                     })
                     .catch((error) => {
                         contentList.innerHTML = errorMessage;
@@ -105,17 +119,6 @@ const ManualInput = {
                     });
             } else {
                 console.log(`couldn't find info with given parameters`);
-            }
-        });
-
-        const input = document.querySelector('#product-code');
-        const button = document.querySelector('#product-submit');
-        input.addEventListener('keyup', (event) => {
-            const value = event.currentTarget.value;
-            button.disabled = false;
-
-            if (value === '') {
-                button.disabled = true;
             }
         });
     },

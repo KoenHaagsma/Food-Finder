@@ -14,7 +14,7 @@ const Scanner = {
                 </div>
                 <div class="link_container">
                     <button>Stop scanning</button>
-                    <a href="/#/manual">Can't scan product? Fill in code</a>
+                    <a href="/Food-Finder/#/manual">Can't scan product? Fill in code</a>
                 </div>
             </section>
         `;
@@ -39,7 +39,7 @@ const Scanner = {
         buttons[0].onclick = (event) => {
             event.preventDefault;
             detect.stop(`.${div.className}`);
-            location.href = '/#/';
+            location.href = '/Food-Finder/#/';
         };
     },
 };

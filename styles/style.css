@@ -29,6 +29,9 @@ h1 {
 #page_container {
     min-height: 100vh;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #page_container > .loading-container {
@@ -41,6 +44,10 @@ h1 {
     bottom: 0;
     left: 0;
     right: 0;
+}
+
+#page_container > section {
+    max-width: 900px;
 }
 
 /* Home */
@@ -110,6 +117,7 @@ h1 {
 
 .scanner > .container > video {
     border-radius: 5px;
+    max-width: 900px;
 }
 
 .scanner > .link_container {
@@ -171,13 +179,37 @@ h1 {
 
 .manual-input > h1 {
     font-size: 2rem;
-    margin-top: 5rem;
+    margin-top: 2.5rem;
     text-align: center;
 }
 
 .manual-input > form {
     margin-top: 30vh;
     transition: all 0.25s;
+    width: 100%;
+}
+
+.manual-input > form > input {
+    width: calc(100% - 1rem);
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0.25rem 0 0.5rem 0;
+}
+
+.manual-input > form > button {
+    color: var(--white);
+    background-color: var(--black);
+    width: 25%;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
 }
 
 .manual-input > .content {
@@ -186,6 +218,8 @@ h1 {
     align-items: flex-start;
     flex-direction: column;
     margin-top: 1rem;
+    margin-bottom: 5rem;
+    width: 100%;
 }
 
 .manual-input > .content > .loader {
@@ -205,10 +239,6 @@ h1 {
     color: var(--black);
 }
 
-.manual-input > .content > .products {
-    margin-bottom: 2rem;
-}
-
 .manual-input > .content > .loading-products {
     display: flex;
     flex-direction: column;
@@ -217,10 +247,30 @@ h1 {
     width: 100%;
 }
 
+/* https://dev.to/michaelburrows/css-skeleton-loading-screen-animation-gj3 */
+.manual-input > .content > .loading-products > .skeleton {
+    cursor: progress;
+    background: linear-gradient(0.25turn, transparent, #fff, transparent), linear-gradient(#eee, #eee),
+        radial-gradient(38px circle at 19px 19px, #eee 50%, transparent 51%), linear-gradient(#eee, #eee);
+    background-repeat: no-repeat;
+    background-position: -315px 0, 0 0, 0px 190px, 50px 195px;
+    animation: loading 1.5s infinite;
+    height: 3rem;
+    width: 100%;
+    border-radius: 5px;
+}
+
+@keyframes loading {
+    to {
+        background-position: 315px 0, 0 0, 0 190px, 50px 195px;
+    }
+}
+
 .manual-input > .content > ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    width: calc(100% - 2rem);
 }
 
 .manual-input > .content li {
@@ -228,6 +278,9 @@ h1 {
     background-color: var(--grey);
     border-radius: 5px;
     margin-bottom: 0.5rem;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.25s;
 }
 
 .manual-input > .content li a {
@@ -241,6 +294,118 @@ h1 {
     background-color: #feefb3;
 }
 
+/* https://cssgradient.io/ */
+.manual-input > .link-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: calc(900px - 3rem);
+    background: rgb(255, 255, 255);
+    background: -moz-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 40%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 40%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 40%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1);
+}
+
+.manual-input > .link-container > a {
+    color: var(--white);
+    background-color: var(--black);
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.manual-input > .link-container > a > img {
+    width: 24px;
+    height: 24px;
+}
+
 .manual-input > .active {
     margin-top: 2rem;
+}
+
+/* Details */
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: calc(100vh - 4rem);
+    padding: 2rem;
+    position: relative;
+}
+
+.details > .link-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: calc(900px - 3rem);
+    background: rgb(255, 255, 255);
+    background: -moz-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 40%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 40%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 40%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1);
+}
+
+.details > .link-container img {
+    transform: rotate(180deg);
+    width: 24px;
+    height: 24px;
+}
+
+.details > .link-container > a {
+    color: var(--white);
+    background-color: var(--black);
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
