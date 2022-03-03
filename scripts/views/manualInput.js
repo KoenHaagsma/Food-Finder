@@ -22,14 +22,11 @@ const ManualInput = {
         const form = document.querySelector('#product-form');
         const errorMessage = `<p class="error">Something went wrong here, please try again</p>`;
         let counter = 1;
-        const options = {
-            rootMargin: '200px 0px 0px 0px',
-            threshold: 0.5,
-        };
 
         form.addEventListener('submit', (event) => {
             event.preventDefault();
             form.classList.add('active');
+            counter = 1;
             contentList.innerHTML = `
             <div class="loader">
                 <img src='./images/Preloader_3.gif'>
@@ -51,17 +48,18 @@ const ManualInput = {
                         </ul>`;
 
                         // Lazy load more products
-                        let observer = new IntersectionObserver((elements) => {
-                            const lastCard = elements[0];
-                            const productsList = document.querySelector('.products');
-                            console.log(lastCard);
-                            if (!lastCard.isIntersecting) return;
-                            loadNextPage();
-                            function loadNextPage() {
-                                fetchData(`${productCategoryURL}${event.target[0].value}/${counter + 1}.json`)
-                                    .then((data) => {
-                                        observer.unobserve(lastCard.target);
-                                        productsList.innerHTML += `
+                        let observer = new IntersectionObserver(
+                            (elements) => {
+                                const lastCard = elements[0];
+                                const productsList = document.querySelector('.products');
+                                console.log(lastCard);
+                                if (!lastCard.isIntersecting) return;
+                                loadNextPage();
+                                function loadNextPage() {
+                                    fetchData(`${productCategoryURL}${event.target[0].value}/${counter + 1}.json`)
+                                        .then((data) => {
+                                            observer.unobserve(lastCard.target);
+                                            productsList.innerHTML += `
                                     ${data.products
                                         .map(
                                             (product) =>
@@ -69,13 +67,15 @@ const ManualInput = {
                                         )
                                         .join('\n ')}
                                     `;
-                                    })
-                                    .then(() => {
-                                        counter++;
-                                        observer.observe(document.querySelector('.list-item-li:last-child'));
-                                    });
-                            }
-                        }, options);
+                                        })
+                                        .then(() => {
+                                            counter++;
+                                            observer.observe(document.querySelector('.list-item-li:last-child'));
+                                        });
+                                }
+                            },
+                            { rootMargin: '500px 0px 0px 0px' },
+                        );
                         observer.observe(document.querySelector('.list-item-li:last-child'));
                     })
                     .catch((error) => {
