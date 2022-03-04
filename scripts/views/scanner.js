@@ -25,13 +25,15 @@ const Scanner = {
         const div = document.querySelector('.container');
         const url = 'https://world.openfoodfacts.org/api/v0/product/';
         detect.start(`.${div.className}`, (result) => {
-            fetchData(url, result).then((data) => {
+            fetchData(`${url}${result}`).then((data) => {
                 if (data.status === 1) {
                     console.log('Found!');
-                    console.log(data);
+                    location.href = `/Food-Finder/#/details/${result}`;
                 } else if (data.status === 0) {
                     console.log('Not Found!');
-                    console.log(data);
+                    div.innerHTML = `
+                    <p>Product is not found or recognised</p>
+                    `;
                 }
             });
         });

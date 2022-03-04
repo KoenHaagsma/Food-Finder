@@ -15,14 +15,23 @@ const Details = {
     render: async () => {
         let request = Utils.parseRequestURL();
         let product = await getProduct(request.id);
-        console.log(product);
-        console.log(product.product.ingredients);
 
-        const view = `
+        if (product.status === 0) {
+            const view = `
             <section class="section details">
                 <h1>Details</h1>
                 <section class="content">
-                    <h2>${product.product.generic_name}</h2>
+                    <h2>Product did not have enough details or does not exist</h2>
+                </section>
+                <div class='link-container'><a href="/Food-Finder/#/"><img src="./images/arrow.png"></a></div> 
+            </section>`;
+            return view;
+        } else {
+            const view = `
+            <section class="section details">
+                <h1>Details</h1>
+                <section class="content">
+                    <h2>${product.product.product_name}</h2>
                     <p>Ingredients</p>
                     <ul>
                     ${product.product.ingredients
@@ -30,10 +39,10 @@ const Details = {
                         .join('\n ')}
                     </ul>
                 </section>
-                <div class='link-container'><a href="/Food-Finder/#/"><img src="./images/arrow.png"></a></div> 
-            </section>
-        `;
-        return view;
+                <div class='link-container'><a href="/Food-Finder//#/"><img src="./images/arrow.png"></a></div> 
+            </section>`;
+            return view;
+        }
     },
     after_render: async () => {},
 };

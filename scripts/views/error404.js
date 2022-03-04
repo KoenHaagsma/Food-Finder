@@ -3,6 +3,7 @@ const Error404 = {
         const view = `
             <section class="section">
                 <h1>404 Error</h1>
+                <a href="/Food-Finder/#/">Back to homepage</a>
             </section>
         `;
         return view;
