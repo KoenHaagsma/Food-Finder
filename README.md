@@ -44,7 +44,7 @@ git clone https://github.com/KoenHaagsma/Food-Finder.git
 ```
 3. Go to the cloned repository
 ```
-cd ../../Techtrack-Frontend-Applications
+cd ../../Food-Finder
 ```
 4. Start application with Live-Server in VSCODE
 ```
