@@ -28,6 +28,7 @@ See wiki for iterations and more in depth info<br>
 <a href="">Wiki</a>
 
 ## 🎱 Activity Diagram
+Activity diagram: <br>
 [Activity Diagram](./images/activityDiagram.png)
 
 ## 🔍 Getting started
