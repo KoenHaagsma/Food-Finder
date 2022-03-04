@@ -27,6 +27,9 @@ De assignment is build a SPA with vanilla JS (and microlibraries if needed) base
 See wiki for iterations and more in depth info<br>
 <a href="">Wiki</a>
 
+## 🎱 Activity Diagram
+[Activity Diagram](./images/activityDiagram.png)
+
 ## 🔍 Getting started
 *Before you can start you need to follow the installation*
 
