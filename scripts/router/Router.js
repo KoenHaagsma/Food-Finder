@@ -12,7 +12,6 @@ const routes = {
     '/scanner': Scanner,
 };
 
-// test
 // https://github.com/rishavs/vanillajs-spa
 const router = async () => {
     // Lazy load elements
