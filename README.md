@@ -29,7 +29,7 @@ See wiki for iterations and more in depth info<br>
 
 ## 🎱 Activity Diagram
 Activity diagram: <br>
-[Activity Diagram](./images/activityDiagram.png)
+![Activity Diagram](./images/activityDiagram.png)
 
 ## 🔍 Getting started
 *Before you can start you need to follow the installation*
