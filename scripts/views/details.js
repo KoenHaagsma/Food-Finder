@@ -31,6 +31,7 @@ const Details = {
             <section class="section details">
                 <h1>Details</h1>
                 <section class="content">
+                    <h3>${product.product.brands}</h3>
                     <h2>${product.product.product_name}</h2>
                     <p>Ingredients</p>
                     <ul>

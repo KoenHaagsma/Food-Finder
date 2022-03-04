@@ -79,7 +79,8 @@ const ManualInput = {
                                     ${data.products
                                         .map(
                                             (product) =>
-                                                `<li class="list-item-li"><a class="list-item" href="/Food-Finder/#/details/${product._id}">${product.product_name}</a><span>Details &bsp</span></li>`,
+                                                // TODO: Add logic so only almost complete products are showed (product.completness between 0 and 1)
+                                                `<li class="list-item-li"><a class="list-item" href="/Food-Finder/#/details/${product._id}">${product.product_name}</a><span>Details</span></li>`,
                                         )
                                         .join('\n ')}
                                     `;
