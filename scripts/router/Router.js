@@ -18,7 +18,6 @@ const router = async () => {
     const content = null || document.getElementById('page_container');
 
     let request = Utils.parseRequestURL();
-    console.log(request);
 
     let parsedURL =
         (request.resource ? '/' + request.resource : '/') +
