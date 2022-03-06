@@ -1,11 +1,15 @@
 import { detect } from '../modules/detect.js';
 import { fetchData } from '../modules/fetch.js';
+import { prefix } from '../config/config.js';
 
 const Scanner = {
     render: async () => {
         const view = `
             <section class="section scanner">
-                <h1>Scan the product barcode</h1>
+                <div class="header-container">
+                    <h1>Food finder</h1>
+                    <p>Scan het product</p>
+                </div>
                 <div class="container">
                     <section class="loading-container">
                         <img src="./images/Preloader_3.gif">
@@ -13,8 +17,7 @@ const Scanner = {
                     </section>
                 </div>
                 <div class="link_container">
-                    <button>Stop scanning</button>
-                    <a href="/Food-Finder/#/manual">Can't scan product? Fill in code</a>
+                    <button>Code invoeren</button>
                 </div>
             </section>
         `;
@@ -28,12 +31,10 @@ const Scanner = {
             fetchData(`${url}${result}`).then((data) => {
                 if (data.status === 1) {
                     console.log('Found!');
-                    location.href = `/Food-Finder/#/details/${result}`;
+                    location.href = `${prefix}details/${result}`;
                 } else if (data.status === 0) {
                     console.log('Not Found!');
-                    div.innerHTML = `
-                    <p>Product is not found or recognised</p>
-                    `;
+                    location.href = `${prefix}error`;
                 }
             });
         });
@@ -41,7 +42,7 @@ const Scanner = {
         buttons[0].onclick = (event) => {
             event.preventDefault;
             detect.stop(`.${div.className}`);
-            location.href = '/Food-Finder/#/';
+            location.href = `${prefix}manual`;
         };
     },
 };

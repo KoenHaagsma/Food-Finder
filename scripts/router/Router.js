@@ -1,15 +1,15 @@
 import Utils from '../helpers/Utils.js';
 import Error404 from '../views/error404.js';
-import Home from '../views/home.js';
 import ManualInput from '../views/manualInput.js';
 import Details from '../views/details.js';
 import Scanner from '../views/scanner.js';
+import ErrorPage from '../views/errorPage.js';
 
 const routes = {
-    '/': Home,
+    '/': Scanner,
     '/manual': ManualInput,
     '/details/:id': Details,
-    '/scanner': Scanner,
+    '/error/': ErrorPage,
 };
 
 // https://github.com/rishavs/vanillajs-spa

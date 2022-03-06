@@ -1,10 +1,11 @@
 import { prefix } from '../config/config.js';
 
-const Error404 = {
+const errorPage = {
     render: async () => {
         const view = `
             <section class="section">
-                <h1>404 Error</h1>
+                <h1>Product is not found</h1>
+                <a href="${prefix}manual">Fill in product / product code instead</a>
                 <a href="${prefix}">Back to homepage</a>
             </section>
         `;
@@ -13,4 +14,4 @@ const Error404 = {
     after_render: async () => {},
 };
 
-export default Error404;
+export default errorPage;

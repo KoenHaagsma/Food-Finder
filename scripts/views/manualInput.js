@@ -1,17 +1,20 @@
 import { fetchData } from '../modules/fetch.js';
+import { errorBlock } from './components/errorMessage.js';
+import { listItem } from './components/listItem.js';
+import { isDataComplete } from '../helpers/isComplete.js';
+import { prefix } from '../config/config.js';
 
 const ManualInput = {
     render: async () => {
         const view = `
             <section class="section manual-input">
-                <h1>Fill in product name/code</h1>
+                <h1>Fill in product name or code</h1>
                 <form id="product-form">
-                    <label for="product-code">Product name or code</label>
-                    <input type="text" id="product-code" name="product-code">
+                    <input placeholder="Product code/name" type="text" id="product-code" name="product-code">
                     <button type="submit" value="submit" id="product-submit" form="product-form">Search</button>
                 </form>
                 <section class="content"></section>
-                <div class='link-container'><a href="/Food-Finder/#/scanner"><img src="./images/camera.png"></a></div> 
+                <div class='link-container'><a href="${prefix}"><img src="./images/camera.png"></a></div> 
             </section>
         `;
         return view;
@@ -21,13 +24,15 @@ const ManualInput = {
         const productCategoryURL = 'https://world.openfoodfacts.org/category/';
         const contentList = document.querySelector('.content');
         const form = document.querySelector('#product-form');
-        const errorMessage = `<p class="error">Something went wrong here, please try again</p>`;
+        const header = document.querySelector('h1');
         let counter = 1;
+        let productCount = 0;
 
         // Form event
         form.addEventListener('submit', (event) => {
+            productCount = 0;
             event.preventDefault();
-            form.classList.add('active');
+            header.classList.add('active');
             counter = 1;
             contentList.innerHTML = `
             <div class="loader">
@@ -39,26 +44,31 @@ const ManualInput = {
             if (isNaN(event.target[0].value)) {
                 fetchData(`${productCategoryURL}${event.target[0].value}/${counter}.json`)
                     .then((data) => {
-                        console.log(data);
                         // Cancel if product is not complete or empty or not found
                         if (data.status === 0 || data.count === 0 || data.products.length === 0) {
-                            contentList.innerHTML = `
-                            <p class="error">Product not complete or not found</p>
-                            `;
+                            console.log(`data.status, data.count, data.completness triggerd higher`);
+                            contentList.innerHTML = errorBlock;
                             return;
                         }
+
+                        const newProducts = data.products;
+                        let filteredProducts = newProducts.filter((product) => {
+                            return isDataComplete(product);
+                        });
+                        if (filteredProducts.length === 0) {
+                            filteredProducts = newProducts;
+                        }
+                        console.log(filteredProducts);
+                        productCount += filteredProducts.length;
+
                         contentList.innerHTML = `
-                        <p class="count">${data.count} products found</p>
+                        <p class="count">${productCount} valid products found</p>
                         <ul class="products">
-                        ${data.products
-                            .map(
-                                (product) =>
-                                    `<li class="list-item-li"><a href="/Food-Finder/#/details/${product._id}" class="list-item">${product.product_name}</a></li>`,
-                            )
-                            .join('\n ')}
+                            ${filteredProducts.map((product) => listItem(product)).join('\n ')}
                         </ul>
                         <div class="loading-products">
                         </div>`;
+
                         // Lazy load more products if product count is greater than 24 because of pagination
                         if (data.count > 24) {
                             let observer = new IntersectionObserver(
@@ -75,15 +85,19 @@ const ManualInput = {
                                         fetchData(`${productCategoryURL}${event.target[0].value}/${counter + 1}.json`)
                                             .then((data) => {
                                                 observer.unobserve(lastCard.target);
+                                                const newProducts = data.products;
+                                                const count = document.querySelector('.count');
+                                                let filteredProducts = newProducts.filter((product) => {
+                                                    return isDataComplete(product);
+                                                });
+                                                productCount += filteredProducts.length;
+                                                count.innerHTML = `${productCount} valid products found`;
+                                                if (filteredProducts.length === 0) {
+                                                    filteredProducts = newProducts;
+                                                }
+
                                                 productsList.innerHTML += `
-                                    ${data.products
-                                        .map(
-                                            (product) =>
-                                                // TODO: Add logic so only almost complete products are showed (product.completness between 0 and 1)
-                                                `<li class="list-item-li"><a class="list-item" href="/Food-Finder/#/details/${product._id}">${product.product_name}</a><span>Details</span></li>`,
-                                        )
-                                        .join('\n ')}
-                                    `;
+                                                ${filteredProducts.map((product) => listItem(product)).join('\n ')}`;
                                             })
                                             .then(() => {
                                                 counter++;
@@ -98,8 +112,8 @@ const ManualInput = {
                         }
                     })
                     .catch((error) => {
-                        contentList.innerHTML = errorMessage;
-                        console.error(error);
+                        console.log(error);
+                        contentList.innerHTML = errorBlock;
                     });
 
                 // Product code search
@@ -107,16 +121,15 @@ const ManualInput = {
                 fetchData(`${productCodeURL}${event.target[0].value}`)
                     .then((data) => {
                         if (data.status === 0 || data.count === 0 || data.product.completeness === 0) {
-                            contentList.innerHTML = `
-                            <p class="error">Product not complete or found</p>
-                            `;
+                            console.log(`data.status, data.count, data.completness triggerd lower`);
+                            contentList.innerHTML = errorBlock;
                             return;
                         }
-                        location.href = `/Food-Finder/#/details/${data.product._id}`;
+                        location.href = `${prefix}details/${data.product._id}`;
                     })
                     .catch((error) => {
-                        contentList.innerHTML = errorMessage;
-                        console.error(error);
+                        console.log(error);
+                        contentList.innerHTML = errorBlock;
                     });
             } else {
                 console.log(`couldn't find info with given parameters`);

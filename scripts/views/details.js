@@ -1,4 +1,6 @@
 import Utils from '../helpers/Utils.js';
+import { errorBlock } from './components/errorMessage.js';
+import { prefix } from '../config/config.js';
 
 let getProduct = async (id) => {
     try {
@@ -16,15 +18,14 @@ const Details = {
         let request = Utils.parseRequestURL();
         let product = await getProduct(request.id);
 
-        if (product.status === 0) {
-            const view = `
-            <section class="section details">
-                <h1>Details</h1>
-                <section class="content">
-                    <h2>Product did not have enough details or does not exist</h2>
-                </section>
-                <div class='link-container'><a href="/Food-Finder/#/"><img src="./images/arrow.png"></a></div> 
-            </section>`;
+        if (
+            product.status === 0 ||
+            product.product.ingredients === undefined ||
+            product.product.ingredients.length === 0
+        ) {
+            const view = `${errorBlock}
+            <a href="${prefix}manual"class="extra-button">Fill in product name/code</a>
+            `;
             return view;
         } else {
             const view = `
@@ -40,7 +41,7 @@ const Details = {
                         .join('\n ')}
                     </ul>
                 </section>
-                <div class='link-container'><a href="/Food-Finder//#/"><img src="./images/arrow.png"></a></div> 
+                <div class='link-container'><a href="${prefix}#/"><img src="./images/arrow.png"></a></div> 
             </section>`;
             return view;
         }

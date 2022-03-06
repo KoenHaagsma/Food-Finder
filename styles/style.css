@@ -1,19 +1,20 @@
 /* Typography */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 /* Variables */
 :root {
     --white: #fff;
-    --black: #1e1e1e;
+    --black: #373737;
     --light: #feece0;
     --grey: #f4f6f6;
     --orange: #ed864e;
-    --border-radius: 24px;
+    --green: #2fb668;
+    --border-radius: 10px;
 }
 
 /* General styling */
 html {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 body {
@@ -49,50 +50,7 @@ h1 {
 
 #page_container > section {
     max-width: 900px;
-}
-
-/* Home */
-.home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    min-height: calc(100vh - 4rem);
-    padding: 2rem;
-}
-
-.home > h1 {
-    font-size: 2rem;
-    margin-top: 5rem;
-}
-
-.home > .link_container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    width: 80vw;
-    padding: 5rem 0;
-    border-radius: var(--border-radius);
-}
-
-.home > .link_container > a:first-of-type {
-    color: var(--white);
-    background-color: var(--black);
-    width: 70%;
-    text-decoration: none;
-    border-radius: var(--border-radius);
-    padding: 1rem 2rem;
-}
-
-.home > .link_container > a:last-of-type {
-    color: var(--black);
-    background-color: var(--grey);
-    padding: 1rem 2rem;
-    border-radius: var(--border-radius);
-    margin-top: 1rem;
-    width: 70%;
-    text-decoration: none;
+    transition: all 0.25s;
 }
 
 /* Scanner */
@@ -103,8 +61,21 @@ h1 {
     justify-content: space-around;
 }
 
-.scanner > h1 {
+.scanner > .header-container > h1 {
     text-align: center;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 38px;
+    line-height: 52px;
+}
+
+.scanner > .header-container > p {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    margin: 0;
 }
 
 .scanner > .container {
@@ -116,9 +87,24 @@ h1 {
     position: relative;
 }
 
+/* https://stackoverflow.com/questions/14387690/how-can-i-show-only-corner-borders */
 .scanner > .container > video {
+    --b: 5px; /* thickness of the border */
+    --c: #2fb668; /* color of the border */
+    --w: 20px; /* width of border */
+
+    max-width: 300px;
     border-radius: 5px;
-    max-width: 900px;
+
+    border: var(--b) solid transparent; /* space for the border */
+    --g: #0000 90deg, var(--c) 0;
+    background: conic-gradient(from 90deg at top var(--b) left var(--b), var(--g)) 0 0,
+        conic-gradient(from 180deg at top var(--b) right var(--b), var(--g)) 100% 0,
+        conic-gradient(from 0deg at bottom var(--b) left var(--b), var(--g)) 0 100%,
+        conic-gradient(from -90deg at bottom var(--b) right var(--b), var(--g)) 100% 100%;
+    background-size: var(--w) var(--w);
+    background-origin: border-box;
+    background-repeat: no-repeat;
 }
 
 .scanner > .link_container {
@@ -128,17 +114,20 @@ h1 {
 }
 
 .scanner > .link_container > button {
-    color: var(--black);
-    background-color: var(--grey);
+    color: var(--white);
+    background-color: var(--green);
     padding: 1rem 2rem;
     border-radius: var(--border-radius);
     margin-top: 1rem;
-    width: 70%;
+    width: 80%;
     text-decoration: none;
     border: none;
     order: 1;
-    font-size: 1rem;
     font-weight: 500;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
 }
 
 .scanner > .link_container > a {
@@ -179,38 +168,53 @@ h1 {
 }
 
 .manual-input > h1 {
-    font-size: 2rem;
-    margin-top: 2.5rem;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 44px;
     text-align: center;
+    transition: all 0.25s;
+    margin-top: 30vh;
+}
+
+.manual-input > #product-form {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
 }
 
 .manual-input > form {
-    margin-top: 30vh;
     transition: all 0.25s;
     width: 100%;
 }
 
 .manual-input > form > input {
     width: calc(100% - 1rem);
-    padding: 0.5rem;
+    padding: 0 0.5rem;
+    height: 50px;
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 1px;
-    margin: 0.25rem 0 0.5rem 0;
+    background-color: #ebf8f0;
+    border: none;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
 }
 
 .manual-input > form > button {
     color: var(--white);
-    background-color: var(--black);
-    width: 25%;
+    background-color: var(--green);
     text-decoration: none;
     border: none;
-    border-radius: 5px;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.5rem 2rem;
-    font-size: 1rem;
+    padding: 0 2rem;
+    height: 50px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
 }
 
 .manual-input > .content {
@@ -272,16 +276,31 @@ h1 {
     margin: 0;
     padding: 0;
     width: calc(100% - 2rem);
+    list-style-type: none;
+    margin: 0;
 }
 
-.manual-input > .content li {
-    padding: 1rem;
+.manual-input > .content .list-item-li {
     background-color: var(--grey);
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     margin-bottom: 0.5rem;
     cursor: pointer;
-    width: 100%;
     transition: all 0.25s;
+    list-style-type: none;
+}
+
+.inside {
+    padding: 0.5rem 1rem;
+    list-style-type: none;
+    display: flex;
+    transition: all 0.25s;
+}
+
+.inside > img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: var(--border-radius);
+    margin-right: 0.5rem;
 }
 
 .manual-input > .content li a {
@@ -289,10 +308,66 @@ h1 {
     color: var(--black);
 }
 
-.manual-input > .content > .error {
+.error {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
     padding: 1rem 2rem;
-    color: #9f6000;
-    background-color: #feefb3;
+    color: var(--black);
+}
+
+.manual-input > .content > .products {
+    width: 100%;
+}
+
+@media screen and (min-width: 767px) {
+    .manual-input > .content > .products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .list-item-li {
+        width: 49%;
+    }
+}
+
+.error > p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+    margin-top: 1.5rem;
+}
+
+.error > a {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    text-decoration: none;
+    background-color: var(--green);
+    color: var(--white);
+    border-radius: var(--border-radius);
+    width: 100%;
+    padding: 20px 0;
+    margin-top: 4rem;
+}
+
+.extra-button {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    text-decoration: none;
+    background-color: var(--grey);
+    color: var(--black);
+    border-radius: var(--border-radius);
+    width: calc(100% - 4rem);
+    margin: 0 2rem;
+    padding: 20px 0;
+    text-align: center;
+    max-width: 626px;
 }
 
 /* https://cssgradient.io/ */
@@ -331,7 +406,7 @@ h1 {
 
 .manual-input > .link-container > a {
     color: var(--white);
-    background-color: var(--black);
+    background-color: var(--green);
     width: 50px;
     height: 50px;
     text-decoration: none;
@@ -347,7 +422,7 @@ h1 {
 }
 
 .manual-input > .active {
-    margin-top: 2rem;
+    margin-top: 0;
 }
 
 /* Details */
