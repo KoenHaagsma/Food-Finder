@@ -252,6 +252,10 @@ h1 {
     width: 100%;
 }
 
+.message {
+    margin: 0;
+}
+
 /* https://dev.to/michaelburrows/css-skeleton-loading-screen-animation-gj3 */
 .manual-input > .content > .loading-products > .skeleton {
     cursor: progress;
@@ -485,4 +489,13 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* TEMP */
+.WIPDIV {
+    padding: 1rem;
+    color: white;
+    background-color: var(--green);
+    margin-top: 1rem;
+    border-radius: var(--border-radius);
 }

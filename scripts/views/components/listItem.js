@@ -8,7 +8,7 @@ const listItem = (product) => {
     const view = `<li class="list-item-li">
     <a href="${prefix}details/${product._id}" class="list-item">
         <div class="inside">
-            <img src="${product.image_url}">
+            <img src="${completeImg ? product.image_url : '../../../images/placeholder.png'}">
             <article class="details-products">
                 <li>${product.product_name}</li>
                 <li style="display: ${completeNutritionGrade ? 'block;' : 'none;'}"><b>Nutrition grade:</b> ${
@@ -24,4 +24,6 @@ const listItem = (product) => {
     return view;
 };
 
+// For testing purposes
+// <li>${product.popularity_key}</li>
 export { listItem };
