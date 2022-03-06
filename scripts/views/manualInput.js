@@ -61,6 +61,8 @@ const ManualInput = {
                         // Cancel if product is not complete or empty or not found
                         if (data.status === 0 || data.count === 0 || data.products.length === 0) {
                             contentList.innerHTML = errorBlock;
+                            const sortContainer = document.querySelector('.sort-container');
+                            sortContainer.innerHTML = '';
                             return;
                         }
 
@@ -141,12 +143,16 @@ const ManualInput = {
                     .then((data) => {
                         if (data.status === 0 || data.count === 0 || data.product.completeness === 0) {
                             contentList.innerHTML = errorBlock;
+                            const sortContainer = document.querySelector('.sort-container');
+                            sortContainer.innerHTML = '';
                             return;
                         }
                         location.href = `${prefix}details/${data.product._id}`;
                     })
                     .catch((error) => {
                         contentList.innerHTML = errorBlock;
+                        const sortContainer = document.querySelector('.sort-container');
+                        sortContainer.innerHTML = '';
                         console.error(error);
                     });
             } else {
@@ -155,6 +161,7 @@ const ManualInput = {
             }
         });
 
+        // Sort products based on popularity score
         function sortAndShowProducts() {
             let fetchCount;
             fetchCount = 0;
@@ -184,6 +191,8 @@ const ManualInput = {
                                     <img src="../images/Uitroepteken.svg">
                                     <p>If you want to sort this you have to do more than 1000 requests we do not allow that.</p>
                                 </div>`;
+
+                        const sortContainer = document.querySelector('.sort-container');
                         sortContainer.innerHTML = '';
                         return;
                     }
