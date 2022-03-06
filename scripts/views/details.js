@@ -41,7 +41,7 @@ const Details = {
                         .join('\n ')}
                     </ul>
                 </section>
-                <div class='link-container'><a href="${prefix}#/"><img src="./images/arrow.png"></a></div> 
+                <div class='link-container'><a href="${prefix}"><img src="./images/arrow.png"></a></div> 
             </section>`;
             return view;
         }

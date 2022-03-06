@@ -9,7 +9,7 @@ const routes = {
     '/': Scanner,
     '/manual': ManualInput,
     '/details/:id': Details,
-    '/error/': ErrorPage,
+    '/error': ErrorPage,
 };
 
 // https://github.com/rishavs/vanillajs-spa
