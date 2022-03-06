@@ -19,7 +19,7 @@ const detect = {
                 },
                 function (err) {
                     if (err) {
-                        console.log(err);
+                        console.error(err);
                         return;
                     }
 
@@ -32,7 +32,7 @@ const detect = {
 
                     Quagga.onDetected((result) => {
                         code = result.codeResult.code;
-                        console.log(code);
+                        // Custom callback by Robert Spier
                         callback(code);
                         detect.stop(`${element}`);
                     });
@@ -52,7 +52,6 @@ const detect = {
         if (canvasDelete) {
             canvasDelete.remove();
         }
-        console.log('Stopped');
         _scannerRunning = false;
     },
 };

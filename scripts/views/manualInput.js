@@ -60,7 +60,6 @@ const ManualInput = {
                     .then((data) => {
                         // Cancel if product is not complete or empty or not found
                         if (data.status === 0 || data.count === 0 || data.products.length === 0) {
-                            console.log(`data.status, data.count, data.completness triggerd higher`);
                             contentList.innerHTML = errorBlock;
                             return;
                         }
@@ -132,8 +131,8 @@ const ManualInput = {
                         }
                     })
                     .catch((error) => {
-                        console.log(error);
                         contentList.innerHTML = errorBlock;
+                        console.error(error);
                     });
 
                 // Product code search
@@ -141,18 +140,18 @@ const ManualInput = {
                 fetchData(`${productCodeURL}${event.target[0].value}`)
                     .then((data) => {
                         if (data.status === 0 || data.count === 0 || data.product.completeness === 0) {
-                            console.log(`data.status, data.count, data.completness triggerd lower`);
                             contentList.innerHTML = errorBlock;
                             return;
                         }
                         location.href = `${prefix}details/${data.product._id}`;
                     })
                     .catch((error) => {
-                        console.log(error);
                         contentList.innerHTML = errorBlock;
+                        console.error(error);
                     });
             } else {
                 console.log(`couldn't find info with given parameters`);
+                contentList.innerHTML = errorBlock;
             }
         });
 
@@ -262,7 +261,7 @@ const ManualInput = {
                             }
                         })
                         .catch((error) => {
-                            console.log(error);
+                            console.error(error);
                             contentList.innerHTML = errorBlock;
                             sortContainer.innerHTML = '';
                         });

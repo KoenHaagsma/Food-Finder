@@ -30,10 +30,8 @@ const Scanner = {
         detect.start(`.${div.className}`, (result) => {
             fetchData(`${url}${result}`).then((data) => {
                 if (data.status === 1) {
-                    console.log('Found!');
                     location.href = `${prefix}details/${result}`;
                 } else if (data.status === 0) {
-                    console.log('Not Found!');
                     location.href = `${prefix}error`;
                 }
             });

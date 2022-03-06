@@ -6,7 +6,6 @@ let getProduct = async (id) => {
     try {
         const response = await fetch(`https://world.openfoodfacts.org/api/v0/product/${id}`);
         const json = await response.json();
-        console.log(json);
         return json;
     } catch (err) {
         console.error('Error getting documents', err);
