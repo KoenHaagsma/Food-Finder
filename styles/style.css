@@ -178,6 +178,7 @@ h1 {
     font-weight: bold;
     font-size: 18px;
     line-height: 25px;
+    cursor: pointer;
 }
 
 .scanner > .link_container > a {
@@ -267,6 +268,7 @@ h1 {
     font-weight: bold;
     font-size: 14px;
     line-height: 19px;
+    cursor: pointer;
 }
 
 .manual-input > .content {
@@ -684,18 +686,109 @@ h1 {
     margin: 0;
 }
 
+/* 404 page */
+
+.error404 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.error404 > h1 {
+    max-width: 250px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 44px;
+    text-align: center;
+    margin: 2rem 0;
+    color: var(--black);
+}
+
+@media screen and (min-width: 767px) {
+    .error404 > h1 {
+        max-width: 900px;
+    }
+}
+
+.error404 > a {
+    background-color: var(--green);
+    color: var(--white);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    border-radius: var(--border-radius);
+}
+
 /* ----------------------------------------------- */
 
 .error-details {
     justify-content: center;
 }
 
-.sort-button {
-    padding: 1rem;
+.sort-container {
+    width: 100%;
+}
+
+.sort-container > .sort-button {
+    padding: 0.5rem 1rem;
     color: white;
     background-color: var(--green);
-    margin-top: 1rem;
-    border-radius: var(--border-radius);
+    border-radius: calc(var(--border-radius) / 2);
+    margin-top: 0.25rem;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.sort-container > .sort-text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: grey;
+    margin: 0;
+    margin-top: 0.5rem;
 }
 
 /* ----------------------------------------------- */
+
+.errorpage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.errorpage > h1 {
+    max-width: 250px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 44px;
+    text-align: center;
+    margin: 2rem 0;
+    color: var(--black);
+}
+
+@media screen and (min-width: 767px) {
+    .errorpage > h1 {
+        max-width: 900px;
+    }
+}
+
+.errorpage > a {
+    background-color: var(--green);
+    color: var(--white);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    border-radius: var(--border-radius);
+}
+
+.errorpage > a:last-child {
+    margin-top: 1rem;
+}

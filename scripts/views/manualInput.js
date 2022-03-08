@@ -34,7 +34,11 @@ const ManualInput = {
 
         // Form event
         form.addEventListener('submit', (event) => {
-            const sortButton = '<div class="sort-button">Sort items based on popularity</div>';
+            const sortButton = `
+            <div class="sort-container">
+                <p class="sort-text">Sort by:</p>
+                <div class="sort-button">Popularity</div>
+            </div>`;
             const sortContainer = document.querySelector('.sort-container');
 
             event.preventDefault();

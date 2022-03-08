@@ -3,8 +3,9 @@ import { prefix } from '../config/config.js';
 const Error404 = {
     render: async () => {
         const view = `
-            <section class="section">
-                <h1>404 Error</h1>
+            <section class="section error404">
+                <img src="../../images/Question.png">
+                <h1>Pagina niet gevonden</h1>
                 <a href="${prefix}">Back to homepage</a>
             </section>
         `;
