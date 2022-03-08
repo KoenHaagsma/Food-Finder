@@ -2,7 +2,7 @@
 # ⚙ Food finder
 
 ![Food Finder App](./images/design.png)<br><br>
-[Link to live product](https://koenhaagsma.github.io/Food-Finder/index.html)
+[😍 Link to live product](https://koenhaagsma.github.io/Food-Finder/index.html)
 
 
 ## 📂 Assignment
@@ -13,6 +13,7 @@ De assignment is build a SPA with vanilla JS (and microlibraries if needed) base
 -   [About the project](##About-the-project)
       * [Built with](###Built-with)
       * [Features](###Features)
+      * [Micro libraries](###Micro-libraries)
 -   [Activity Diagram](##Activity-Diagram)
 -   [Getting started](##Getting-started)
       * [Installation](##Installation)
@@ -35,6 +36,10 @@ The project is built with Vanilla JS, HTML and CSS, there is some help from micr
 - Searching for a product (category), it is possible for the user to search for a product with only the product name, there is a small disclaimer here because the API searches on category, this means that you need to search in plural most times.
 - Sort products on popularity, the API doesn't provide a way to sort in the query (I didn't find one), so i built a sorting button myself, when recieving the data, the products in there have a popularity key (Int) so it is pretty easy to sort on that.
 - Detail page and last but not least the app has a detail page where users can see if the product is healthy or not, it shows the nutritional grade and most nutritional values per 100gr, also an image of the product is provided.
+
+### 🔁 API
+
+### 📚 Micro libraries
 
 ## 🎱 Activity Diagram
 Activity diagram: <br>
