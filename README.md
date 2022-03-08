@@ -58,7 +58,6 @@ Right bottom: 'Go live'
 
 ### 🧱 Dependecies/Packages
 - [Quagga.js](https://serratus.github.io/quaggaJS/)
-### 🧱 Dev dependecies/Packages
 
 ## 📑 Sources
 - [Quagga.js](https://serratus.github.io/quaggaJS/)
