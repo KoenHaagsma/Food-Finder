@@ -59,7 +59,7 @@ git clone https://github.com/KoenHaagsma/Food-Finder.git
 ```
 cd ../../Food-Finder
 ```
-4. Start application with Live-Server in VSCODE
+4. Start application with [Live-Server in VSCODE](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 ```
 Right bottom: 'Go live'
 ```
