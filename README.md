@@ -98,10 +98,11 @@ Checklist for showing what is done and what still can be done.<br>
 - [ ] Show products that are added to the list
 
 ## 🎱 Activity Diagram
-Activity diagram iteration 1: <br>
+**Activity diagram iteration 1:** <br><br>
+
 ![Activity Diagram](./images/activityDiagram.png)<br>
 
-Activity diagram iteration 2: <br>
+**Activity diagram iteration 2:** <br><br>
 ![Activity Diagram](./images/activityDiagram_2.png)<br>
 
 ## 🔍 Getting started
