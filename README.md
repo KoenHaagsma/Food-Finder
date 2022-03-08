@@ -1,7 +1,8 @@
 
 # ⚙ Food finder
 
-![Food Finder App](./images/design.png)
+![Food Finder App](./images/design.png)<br><br>
+[Link to live product](https://koenhaagsma.github.io/Food-Finder/index.html)
 
 
 ## 📂 Assignment
