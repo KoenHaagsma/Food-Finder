@@ -17,7 +17,6 @@ const Details = {
     render: async () => {
         let request = Utils.parseRequestURL();
         let product = await getProduct(request.id);
-        console.log(product);
         if (
             product.status === 0 ||
             product.product.ingredients === undefined ||
