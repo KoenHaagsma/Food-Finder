@@ -73,7 +73,18 @@ So i searched for another option because i really wanted a barcode scanner in my
 - Users won't have a way to login to the app;
 - Users won't have a way to scan with the native Barcode API.
 
-### 
+### ✔ Checklist
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
 
 ## 🎱 Activity Diagram
 Activity diagram: <br>
