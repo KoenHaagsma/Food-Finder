@@ -39,11 +39,39 @@ The project is built with Vanilla JS, HTML and CSS, there is some help from micr
 
 ### 🔁 API
 The API used in this product is: [Healthy Food Checker - Open Food Facts API](https://world.openfoodfacts.org/files/api-documentation.html). The API has a lot of data about all foods that you can think off, you can search on different categories, products, barcodes etc.
-There is a lot more possible than that I knew until the last week of the project, I see a lot of possibilities that would enhance my application a lot more, I can still do this and I will do, check the [MoSCoW](###MoSCoW) for more information on what I still want to built
+There is a lot more possible than that I knew until the last week of the project, I see a lot of possibilities that would enhance my application a lot more, I can still do this and I will do, check the [MoSCoW](###MoSCoW) for more information on what I still want to built.
+
+The api provides a decent documentation where you can find how to do fetch queries and some more general information, see screenshot below:
 
 ### 📚 Micro libraries
+I used one micro library because of not accesible features in the browser on Windows by that i mean the Barcode detector. ([MDN](https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API))
+So i searched for another option because i really wanted a barcode scanner in my application, i used [Quagga.js](https://serratus.github.io/quaggaJS/), the documentation is easy to read and also the scanner is easy to use. The experience with this library was good and i would people recommend this scanner, but also it's a pity that i could not use the scanner from JS itself. I hope when i start some other project i can use the native scanner.
 
-### MoSCoW
+### 🙌 MoSCoW
+**Must have**
+- Users must be able to scan a product;
+- Users must be able to view the details of a product;
+- Users must have an alternative way to search for a product instead of scanning;
+- Users must have a fast way to scan/search (for) a product;
+- Users must have a way to sort the list of searched products;
+- Users must have a way to see if the app is loading.
+
+**Should have**
+- Users should have an easy experience with finding a product;
+- Users should have another alternative showed if the scanning of a product takes too long;
+- Users should have a way to sort on more categories than the app sorts on now;
+- Users should not be able to click buttons that do nothing yet;
+- Users shuld have a way to see if a button is clickable or not;
+
+**Could have**
+- Users could have a way to compare products to eachother;
+- Users could have a way to add products to a list;
+- Users could have a way to show added products.
+
+**Won't have**
+- Users won't have a way to register in the app;
+- Users won't have a way to login to the app;
+- Users won't have a way to scan with the native Barcode API.
 
 ## 🎱 Activity Diagram
 Activity diagram: <br>
