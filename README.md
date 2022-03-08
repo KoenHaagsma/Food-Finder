@@ -10,16 +10,16 @@ De assignment is build a SPA with vanilla JS (and microlibraries if needed) base
 'As a foodie, I want to be able to easily search and view information about a product while shopping, so that I can make a good choice whether it fits my diet. Healthy Food Checker - Open Food Facts API'
 
 ## 🧾 Table of contents
--   [About the project](## 📖 About the project)
-      * [Built with](### 🛠 Built with)
-      * [Features](### 🌟 Features)
--   [Activity Diagram](## 🎱 Activity Diagram)
--   [Getting started](## 🔍 Getting started)
-      * [Installation](## 🔨 Installation)
--   [Packages/dependecies](## 🧰 Packages/dependecies)
-      * [Packages/dependecies](### 🧱 Dependecies/Packages)
--   [License](## 🔖 License)
--   [Contributers and their role](## 👪 Contributers)
+-   [About the project](##About the project)
+      * [Built with](###Built with)
+      * [Features](###Features)
+-   [Activity Diagram](##Activity Diagram)
+-   [Getting started](##Getting started)
+      * [Installation](##Installation)
+-   [Packages/dependecies](##Packages/dependecies)
+      * [Packages/dependecies](###Dependecies/Packages)
+-   [License](##License)
+-   [Contributers and their role](##Contributers)
 
 ## 📖 About the project
 My project is about a user story that i chose to do: 'As a foodie, I want to be able to easily search and view information about a product while shopping, so that I can make a good choice whether it fits my diet. Healthy Food Checker - Open Food Facts API', so i build a web app where it is really fast to look if a product is healthy or not.
