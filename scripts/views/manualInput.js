@@ -235,6 +235,8 @@ const ManualInput = {
                         });
                 });
         }
+
+        // Load next product in the array
         function loadNextPageSorted(observer, sliceCount, lastCard, filteredProducts) {
             const productsList = document.querySelector('.products');
             const loadingContainer = document.querySelector('.loading-products');
@@ -256,6 +258,7 @@ const ManualInput = {
             cleanElement(loadingContainer);
         }
 
+        // Load next product fetch
         function loadNextPage(event, observer, lastCard) {
             const productsList = document.querySelector('.products');
             const loadingContainer = document.querySelector('.loading-products');
