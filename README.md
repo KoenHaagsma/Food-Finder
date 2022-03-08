@@ -74,17 +74,23 @@ So i searched for another option because i really wanted a barcode scanner in my
 - Users won't have a way to scan with the native Barcode API.
 
 ### ✔ Checklist
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
+- [x] Scanning a product
+- [x] Show the details of a product
+- [x] Alternative way of searching for a product
+- [x] Fast way of searching for a product
+- [x] Sorting list of searched products
+- [x] Detailed loading states
+- [x] Easy experience with finding a product
+- [x] 404 if hash is not found
+- [ ] Alternative way provided if scanning takes to long
+- [ ] Buttons not clickable when nog needed
+- [x] Sort on popularity
+- [ ] Sort on kcal
+- [ ] Sort on nutritional grade
+- [ ] Compare products
+- [ ] Alternative healthier product showed for searched product
+- [ ] Add products to a list
+- [ ] Show products that are added to the list
 
 ## 🎱 Activity Diagram
 Activity diagram: <br>
