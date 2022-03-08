@@ -75,6 +75,7 @@ So i searched for another option because i really wanted a barcode scanner in my
 - Users won't have a way to scan with the native Barcode API.
 
 ### ✔ Checklist
+Checklist for showing what is done and what still can be done.<br><br>
 - [x] Scanning a product
 - [x] Show the details of a product
 - [x] Alternative way of searching for a product
