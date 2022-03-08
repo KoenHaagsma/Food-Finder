@@ -33,7 +33,7 @@ The project is built with Vanilla JS, HTML and CSS, there is some help from micr
 ### 🌟 Features
 - Scanning a product, it is possible for the user to scan a product bar code with the application, when the scanning is done and the product is recognised the application will show a detail paga with all info that you would expect from a product detail page.
 - Searching for a product code, it is also possible for the user to search on a product bar code, I created this because something the scanner can fail and then there is the possibility to find the product a different way.
-- Searching for a product (category), it is possible for the user to search for a product with only the product name, there is a small disclaimer here because the API searches on category, this means that you need to search in plural most times. Check the [MoSCoW]() for how i would have done it another way if i had time.
+- Searching for a product (category), it is possible for the user to search for a product with only the product name, there is a small disclaimer here because the API searches on category, this means that you need to search in plural most times. Check the [MoSCoW](###MoSCoW) for how i would have done it another way if i had time.
 - Sort products on popularity, the API doesn't provide a way to sort in the query (I didn't find one), so i built a sorting button myself, when recieving the data, the products in there have a popularity key (Int) so it is pretty easy to sort on that.
 - Detail page and last but not least the app has a detail page where users can see if the product is healthy or not, it shows the nutritional grade and most nutritional values per 100gr, also an image of the product is provided.
 
@@ -43,7 +43,7 @@ There is a lot more possible than that I knew until the last week of the project
 
 ### 📚 Micro libraries
 
-###MoSCoW
+### MoSCoW
 
 ## 🎱 Activity Diagram
 Activity diagram: <br>
