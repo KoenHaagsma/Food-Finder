@@ -1,3 +1,5 @@
+import { prefix } from '../config/config.js';
+
 const Home = {
     render: async () => {
         const view = `

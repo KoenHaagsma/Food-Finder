@@ -4,9 +4,11 @@ import ManualInput from '../views/manualInput.js';
 import Details from '../views/details.js';
 import Scanner from '../views/scanner.js';
 import ErrorPage from '../views/errorPage.js';
+import Home from '../views/home.js';
 
 const routes = {
-    '/': Scanner,
+    '/': Home,
+    '/scanner': Scanner,
     '/manual': ManualInput,
     '/details/:id': Details,
     '/error': ErrorPage,

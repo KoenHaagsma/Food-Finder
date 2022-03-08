@@ -23,9 +23,11 @@ const Details = {
             product.product.ingredients === undefined ||
             product.product.ingredients.length === 0
         ) {
-            const view = `${errorBlock}
-            <a href="${prefix}manual"class="extra-button">Fill in product name/code</a>
-            `;
+            const view = `
+            <section class="section details error-details">
+                ${errorBlock}
+                <a href="${prefix}manual"class="extra-button">Fill in product name/code</a>
+            </section>`;
             return view;
         } else {
             let completeNutritionGrade = isSingleKeyComplete(product.product, 'nutrition_grades');

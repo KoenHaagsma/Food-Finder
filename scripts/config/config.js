@@ -1,3 +1,3 @@
 const url = 'https://world.openfoodfacts.org/api/v0/product/';
-const prefix = '/Food-Finder/#/';
+const prefix = '/#/';
 export { url, prefix };
