@@ -5,6 +5,7 @@ import Details from '../views/details.js';
 import Scanner from '../views/scanner.js';
 import ErrorPage from '../views/errorPage.js';
 import Home from '../views/home.js';
+import { renderElementAndClean } from '../modules/renderElement.js';
 
 const routes = {
     '/': Home,
@@ -27,7 +28,8 @@ const router = async () => {
         (request.verb ? '/' + request.verb : '');
 
     let page = routes[parsedURL] ? routes[parsedURL] : Error404;
-    content.innerHTML = await page.render();
+
+    renderElementAndClean(content, await page.render(), 'afterbegin');
     await page.after_render();
 };
 
