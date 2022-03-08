@@ -51,6 +51,7 @@ So i searched for another option because i really wanted a barcode scanner in my
 **Must have**
 - Users must be able to scan a product;
 - Users must be able to view the details of a product;
+- Users must be able to view useful details of a product on the detail page;
 - Users must have an alternative way to search for a product instead of scanning;
 - Users must have a fast way to scan/search (for) a product;
 - Users must have a way to sort the list of searched products;
@@ -82,6 +83,9 @@ So i searched for another option because i really wanted a barcode scanner in my
 - [x] Detailed loading states
 - [x] Easy experience with finding a product
 - [x] 404 if hash is not found
+- [x] Lazy loading products if last product is reached
+- [x] Loading state when needed
+- [x] Details on the detail page are useful
 - [ ] Alternative way provided if scanning takes to long
 - [ ] Buttons not clickable when nog needed
 - [x] Sort on popularity
