@@ -135,6 +135,3 @@ Right bottom: 'Go live'
 
 ## 🔖 License
 [![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)]()
-
-## 👪 Contributers and their role
-*Insert contributers and their role*
