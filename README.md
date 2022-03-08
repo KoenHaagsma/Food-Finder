@@ -10,11 +10,11 @@ De assignment is build a SPA with vanilla JS (and microlibraries if needed) base
 'As a foodie, I want to be able to easily search and view information about a product while shopping, so that I can make a good choice whether it fits my diet. Healthy Food Checker - Open Food Facts API'
 
 ## 🧾 Table of contents
--   [About the project](##About the project)
-      * [Built with](###Built with)
+-   [About the project](##About-the-project)
+      * [Built with](###Built-with)
       * [Features](###Features)
--   [Activity Diagram](##Activity Diagram)
--   [Getting started](##Getting started)
+-   [Activity Diagram](##Activity-Diagram)
+-   [Getting started](##Getting-started)
       * [Installation](##Installation)
 -   [Packages/dependecies](##Packages/dependecies)
       * [Packages/dependecies](###Dependecies/Packages)
